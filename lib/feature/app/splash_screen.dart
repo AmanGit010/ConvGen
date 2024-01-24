@@ -2,7 +2,7 @@ import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../feature/main/main_screen.dart';
+import '../keys/screens/keys_screen.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -16,7 +16,7 @@ class SplashScreen extends StatelessWidget {
       ),
       backgroundColor: const Color(0xff0d0d0d),
       duration: 1500,
-      nextScreen: const MainScreen(),
+      nextScreen: const KeysScreen(),
     );
   }
 }

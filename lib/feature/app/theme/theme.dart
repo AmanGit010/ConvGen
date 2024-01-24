@@ -2,11 +2,12 @@
 
 import 'package:flutter/material.dart';
 
-import '../../constants/colors.dart';
+import '../../../core/constants/colors.dart';
 
 ThemeData lightMode = ThemeData(
   colorScheme: const ColorScheme.light(
     primary: Colors.black,
+    secondary: AppColors.grey3,
   ),
 );
 
@@ -14,5 +15,6 @@ ThemeData darkMode = ThemeData(
   colorScheme: const ColorScheme.dark(
     background: AppColors.splashBlack,
     primary: Colors.white,
+    secondary: AppColors.grey3,
   ),
 );

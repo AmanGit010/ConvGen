@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../feature/main/store/main_store.dart';
+import '../main/store/main_store.dart';
 import 'splash_screen.dart';
 import 'theme/theme_provider.dart';
 
@@ -16,7 +16,10 @@ class App extends StatelessWidget {
         )
       ],
       child: MaterialApp(
-        theme: Provider.of<ThemeProvider>(context).themeData,
+        theme: Provider.of<ThemeProvider>(context).themeData.copyWith(
+              splashColor: Colors.transparent,
+              splashFactory: InkRipple.splashFactory,
+            ),
         debugShowCheckedModeBanner: false,
         home: const SplashScreen(),
       ),

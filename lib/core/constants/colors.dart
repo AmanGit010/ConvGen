@@ -44,4 +44,5 @@ class AppColors {
   static const lbg = Color(0xffcdcdff);
   static const dbg = Color(0xff90a0d9);
   static const splashBlack = Color(0xff0d0d0d);
+  static const grey3 = Color(0xff828282);
 }
