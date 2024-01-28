@@ -19,10 +19,13 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+  //List for all the required bottom nav screens
   final pages = [
     const ChatgptScreen(),
     const DalleScreen(),
   ];
+
+  //Mainstore context
   late final store = context.read<MainStore>();
 
   @override
@@ -30,10 +33,15 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       bottomNavigationBar: Container(
         height: 80,
-        decoration:
-            const BoxDecoration(color: AppColors.splashBlack, boxShadow: [
-          BoxShadow(offset: Offset(0, 8), blurRadius: 20),
-        ]),
+        decoration: const BoxDecoration(
+          color: AppColors.splashBlack,
+          boxShadow: [
+            BoxShadow(
+              offset: Offset(0, 8),
+              blurRadius: 20,
+            ),
+          ],
+        ),
         child: Padding(
           padding: const EdgeInsets.only(top: 20),
           child: Observer(
@@ -50,7 +58,7 @@ class _MainScreenState extends State<MainScreen> {
                         SvgPicture.asset(
                           'assets/svg/openai_logo.svg',
                           color: store.index == 0
-                              ? AppColors.lblue
+                              ? AppColors.lightBlue
                               : AppColors.grey3,
                         ),
                         const SizedBox(height: 8),
@@ -74,7 +82,7 @@ class _MainScreenState extends State<MainScreen> {
                         SvgPicture.asset(
                           'assets/svg/sparkle.svg',
                           color: store.index == 1
-                              ? AppColors.lblue
+                              ? AppColors.lightBlue
                               : AppColors.grey3,
                         ),
                         const SizedBox(height: 10),
@@ -95,47 +103,6 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ),
       ),
-
-      // SizedBox(
-      //   height: 80,
-      //   child: Observer(
-      //     builder: (context) {
-      //       return BottomNavigationBar(
-      //         selectedLabelStyle: AppTextStyle.gt18black
-      //             .copyWith(color: Colors.white, fontSize: 14),
-      //         unselectedLabelStyle: AppTextStyle.gt18black
-      //             .copyWith(color: Colors.white, fontSize: 14),
-      //         selectedItemColor: Colors.white,
-      //         unselectedItemColor: AppColors.grey3,
-      //         type: BottomNavigationBarType.fixed,
-      //         currentIndex: store.index,
-      //         onTap: (value) {
-      //           store.index = value;
-      //         },
-      //         items: [
-      //           BottomNavigationBarItem(
-      //             icon: SvgPicture.asset(
-      //               'assets/svg/openai_logo.svg',
-      //               color: AppColors.grey3,
-      //             ),
-      //             label: 'ChatGPT',
-      //             activeIcon: SvgPicture.asset('assets/svg/openai_logo.svg',
-      //                 color: AppColors.lblue),
-      //           ),
-      //           BottomNavigationBarItem(
-      //             icon: SvgPicture.asset(
-      //               'assets/svg/sparkle.svg',
-      //               color: AppColors.grey3,
-      //             ),
-      //             label: 'DALL·E',
-      //             activeIcon: SvgPicture.asset('assets/svg/sparkle.svg',
-      //                 color: AppColors.lblue),
-      //           ),
-      //         ],
-      //       );
-      //     },
-      //   ),
-      // ),
       body: Observer(
         builder: (context) {
           return pages[store.index];
@@ -144,17 +111,3 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 }
-
-// Observer(builder: (_) {
-//             return GestureDetector(
-//               onTap: () {
-//                 Provider.of<ThemeProvider>(context, listen: false)
-//                     .toggleTheme();
-//                 store.isDarkMode = !store.isDarkMode;
-//               },
-//               child: Icon(
-//                 Icons.dark_mode,
-//                 color: store.isDarkMode == true ? Colors.white : Colors.black,
-//               ),
-//             );
-//           })

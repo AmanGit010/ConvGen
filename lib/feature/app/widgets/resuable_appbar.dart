@@ -7,17 +7,22 @@ import '../../../core/constants/colors.dart';
 import '../../../core/constants/styles.dart';
 
 class ReusableAppbar extends StatelessWidget implements PreferredSizeWidget {
-  const ReusableAppbar({required this.title, required this.ontap, super.key});
+  const ReusableAppbar(
+      {required this.title,
+      required this.leadingOntap,
+      this.trailing,
+      super.key});
 
   final String title;
-  final VoidCallback ontap;
+  final VoidCallback leadingOntap;
+  final List<Widget>? trailing;
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: AppColors.splashBlack,
       leading: GestureDetector(
-        onTap: ontap,
+        onTap: leadingOntap,
         child: UnconstrainedBox(
           child: SvgPicture.asset(
             'assets/svg/sidebar.svg',
@@ -27,7 +32,7 @@ class ReusableAppbar extends StatelessWidget implements PreferredSizeWidget {
       ),
       title: Text(title, style: AppTextStyle.gt18white),
       centerTitle: true,
-      actions: const [],
+      actions: trailing,
     );
   }
 

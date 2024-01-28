@@ -8,7 +8,7 @@ class DalleScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: ReusableAppbar(title: 'DALL·E', ontap: () {}),
+      appBar: ReusableAppbar(title: 'DALL·E', leadingOntap: () {}),
       body: const Column(
         children: [
           Text("Dalle screen"),

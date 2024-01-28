@@ -8,7 +8,7 @@ class ChatgptScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: ReusableAppbar(title: 'ChatGPT', ontap: () {}),
+      appBar: ReusableAppbar(title: 'ChatGPT', leadingOntap: () {}),
       body: const Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

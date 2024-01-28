@@ -49,7 +49,7 @@ class OnboardingScreen extends StatelessWidget {
                   width: MediaQuery.sizeOf(context).width * 0.8,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
-                    color: AppColors.nblue,
+                    color: AppColors.midBlue,
                     boxShadow: const [
                       BoxShadow(
                         offset: Offset(0, 4),

@@ -24,6 +24,7 @@ class _KeysScreenState extends State<KeysScreen> {
   final TextEditingController _apikey = TextEditingController();
   final formKey = GlobalKey<FormState>();
 
+  //Confetti code
   @override
   void initState() {
     super.initState();
@@ -37,6 +38,7 @@ class _KeysScreenState extends State<KeysScreen> {
     _confettiStore.setConfettiFinished(false);
   }
 
+  //Navigation function
   Future<void> _navigateToNextScreen() async {
     await Future.delayed(const Duration(seconds: 3));
     if (mounted) {
@@ -48,9 +50,7 @@ class _KeysScreenState extends State<KeysScreen> {
     }
   }
 
-  // final keyBox = Hive.openBox('apiKey');
-
-  //hive box reference
+  //Hive box refernce variable
   final _box = Hive.box('keyBox');
 
   @override
@@ -59,7 +59,6 @@ class _KeysScreenState extends State<KeysScreen> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
-            // mainAxisSize: MainAxisSize.min,
             children: [
               const SizedBox(height: 70),
               Image.asset(
@@ -117,7 +116,7 @@ class _KeysScreenState extends State<KeysScreen> {
                 children: [
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.nblue,
+                      backgroundColor: AppColors.midBlue,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20),
                       ),

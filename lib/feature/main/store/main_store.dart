@@ -7,6 +7,7 @@ abstract class _MainStoreBase with Store {
   @observable
   bool isDarkMode = true;
 
+  //Nav bar index
   @observable
   int index = 0;
 }

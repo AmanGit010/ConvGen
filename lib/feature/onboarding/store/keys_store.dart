@@ -6,6 +6,7 @@ part 'keys_store.g.dart';
 class KeysStore = _KeysStoreBase with _$KeysStore;
 
 abstract class _KeysStoreBase with Store {
+  // ------------------ Confetti code ------------------------
   @observable
   bool isConfettiFinished = false;
 
@@ -13,4 +14,5 @@ abstract class _KeysStoreBase with Store {
   void setConfettiFinished(bool value) {
     isConfettiFinished = value;
   }
+  // ---------------------------------------------------------
 }
