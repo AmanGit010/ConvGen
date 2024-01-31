@@ -28,10 +28,10 @@ class OnboardingScreen extends StatelessWidget {
                 autostart: Autostart.once,
               ),
               const SizedBox(height: 20),
-              const Text('Feel secure!\n', style: AppTextStyle.gt18whitebold),
+              const Text('Feel secure!\n', style: AppTextStyle.gt16whitebold),
               Text(
                 'Your API key is stored locally on your device, safeguarding your privacy as you dive into limitless possibilities.',
-                style: AppTextStyle.gt18white.copyWith(fontSize: 16),
+                style: AppTextStyle.gt16white.copyWith(fontSize: 16),
                 textAlign: TextAlign.center,
               ),
               const Spacer(),
@@ -62,7 +62,7 @@ class OnboardingScreen extends StatelessWidget {
                     children: [
                       const Text(
                         "Continue",
-                        style: AppTextStyle.gt18whitebold,
+                        style: AppTextStyle.gt16whitebold,
                       ),
                       const SizedBox(width: 10),
                       SvgPicture.asset(

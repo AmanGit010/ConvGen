@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../main/store/main_store.dart';
@@ -19,6 +21,7 @@ class App extends StatelessWidget {
         theme: Provider.of<ThemeProvider>(context).themeData.copyWith(
               splashColor: Colors.transparent,
               splashFactory: InkRipple.splashFactory,
+              useMaterial3: true,
             ),
         debugShowCheckedModeBanner: false,
         home: const SplashScreen(),

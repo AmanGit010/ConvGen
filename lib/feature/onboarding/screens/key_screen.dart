@@ -67,7 +67,7 @@ class _KeysScreenState extends State<KeysScreen> {
               ),
               const Text(
                 "Unlock the power! Enter your API key\nand let the magic happen.",
-                style: AppTextStyle.gt18whitebold,
+                style: AppTextStyle.gt16whitebold,
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 50),
@@ -77,13 +77,14 @@ class _KeysScreenState extends State<KeysScreen> {
                   key: formKey,
                   child: TextFormField(
                     controller: _apikey,
+                    cursorColor: Colors.black,
                     decoration: InputDecoration(
                       hintText: 'Enter your API key',
-                      hintStyle: AppTextStyle.gt18black
+                      hintStyle: AppTextStyle.gt16black
                           .copyWith(color: AppColors.grey3),
                       fillColor: Colors.white,
                       filled: true,
-                      errorStyle: AppTextStyle.gt18white
+                      errorStyle: AppTextStyle.gt16white
                           .copyWith(color: Colors.redAccent),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(20),
@@ -96,7 +97,7 @@ class _KeysScreenState extends State<KeysScreen> {
                         borderRadius: BorderRadius.circular(20),
                       ),
                     ),
-                    style: AppTextStyle.gt18black,
+                    style: AppTextStyle.gt16black,
                     validator: (value) {
                       final RegExp regex = RegExp(r"^[A-Za-z0-9-]{50,}$");
                       if (value!.isEmpty) {
@@ -137,7 +138,7 @@ class _KeysScreenState extends State<KeysScreen> {
                         children: [
                           const Text(
                             "Dive in!",
-                            style: AppTextStyle.gt18whitebold,
+                            style: AppTextStyle.gt16whitebold,
                           ),
                           const SizedBox(width: 10),
                           SvgPicture.asset(
@@ -169,6 +170,7 @@ class _KeysScreenState extends State<KeysScreen> {
                   }),
                 ],
               ),
+              const SizedBox(height: 30),
             ],
           ),
         ),

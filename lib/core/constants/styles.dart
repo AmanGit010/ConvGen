@@ -4,24 +4,24 @@ const gtpro = 'GtPro';
 const helv = 'Helvetica';
 
 class AppTextStyle {
-  static const gt18black =
+  static const gt16black =
       TextStyle(fontFamily: gtpro, fontSize: 18, color: Colors.black);
 
-  static const gt18blackbold = TextStyle(
+  static const gt16blackbold = TextStyle(
       fontFamily: gtpro,
       fontSize: 18,
       color: Colors.black,
       fontWeight: FontWeight.bold);
 
-  static const gt18white =
-      TextStyle(fontFamily: gtpro, fontSize: 18, color: Colors.white);
+  static const gt16white =
+      TextStyle(fontFamily: gtpro, fontSize: 16, color: Colors.white);
 
-  static const gt18whitebold = TextStyle(
+  static const gt16whitebold = TextStyle(
       fontFamily: gtpro,
-      fontSize: 18,
+      fontSize: 16,
       color: Colors.white,
       fontWeight: FontWeight.bold);
 
-  static const helv18white =
+  static const helv16white =
       TextStyle(fontFamily: helv, fontSize: 18, color: Colors.white);
 }
