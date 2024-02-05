@@ -40,66 +40,11 @@ mixin _$MainStore on _MainStoreBase, Store {
     });
   }
 
-  late final _$lastWordsAtom =
-      Atom(name: '_MainStoreBase.lastWords', context: context);
-
-  @override
-  String get lastWords {
-    _$lastWordsAtom.reportRead();
-    return super.lastWords;
-  }
-
-  @override
-  set lastWords(String value) {
-    _$lastWordsAtom.reportWrite(value, super.lastWords, () {
-      super.lastWords = value;
-    });
-  }
-
-  late final _$initSpeechToTextAsyncAction =
-      AsyncAction('_MainStoreBase.initSpeechToText', context: context);
-
-  @override
-  Future<void> initSpeechToText() {
-    return _$initSpeechToTextAsyncAction.run(() => super.initSpeechToText());
-  }
-
-  late final _$startListeningAsyncAction =
-      AsyncAction('_MainStoreBase.startListening', context: context);
-
-  @override
-  Future<void> startListening() {
-    return _$startListeningAsyncAction.run(() => super.startListening());
-  }
-
-  late final _$stopListeningAsyncAction =
-      AsyncAction('_MainStoreBase.stopListening', context: context);
-
-  @override
-  Future<void> stopListening() {
-    return _$stopListeningAsyncAction.run(() => super.stopListening());
-  }
-
-  late final _$_MainStoreBaseActionController =
-      ActionController(name: '_MainStoreBase', context: context);
-
-  @override
-  void onSpeechResult(SpeechRecognitionResult result) {
-    final _$actionInfo = _$_MainStoreBaseActionController.startAction(
-        name: '_MainStoreBase.onSpeechResult');
-    try {
-      return super.onSpeechResult(result);
-    } finally {
-      _$_MainStoreBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
   @override
   String toString() {
     return '''
 isDarkMode: ${isDarkMode},
-index: ${index},
-lastWords: ${lastWords}
+index: ${index}
     ''';
   }
 }

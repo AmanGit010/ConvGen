@@ -52,136 +52,7 @@ class _MainScreenState extends State<MainScreen> {
             );
           }),
         ),
-        drawer: Drawer(
-          backgroundColor: AppColors.splashBlack,
-          child: SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
-              child: Column(
-                // mainAxisSize: MainAxisSize.min,
-                children: [
-                  Container(
-                    // height: MediaQuery.sizeOf(context).height * 0.9,
-                    decoration: BoxDecoration(
-                      color: AppColors.borderg,
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 30),
-                          child: SvgPicture.asset(
-                            'assets/svg/openai_logo.svg',
-                            height: 40,
-                          ),
-                        ),
-                        const Divider(color: Color.fromARGB(255, 93, 93, 93)),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 10, horizontal: 10),
-                          child: Column(
-                            children: [
-                              _TabCont(
-                                'ChatGPT',
-                                () {
-                                  store.index = 0;
-                                  Navigator.pop(context);
-                                },
-                                0,
-                                'assets/svg/openai_logo.svg',
-                              ),
-                              const SizedBox(height: 10),
-                              _TabCont(
-                                'DALL·E',
-                                () {
-                                  store.index = 1;
-                                  Navigator.pop(context);
-                                },
-                                1,
-                                'assets/svg/sparkle.svg',
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const Spacer(),
-                  const SizedBox(height: 10),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: AppColors.borderg,
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10)
-                          .copyWith(top: 10),
-                      child: Column(
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              store.index = 2;
-                              Navigator.pop(context);
-                            },
-                            child: Container(
-                              decoration: BoxDecoration(
-                                color: store.index == 2
-                                    ? AppColors.midBlue
-                                    : const Color.fromARGB(255, 100, 100, 100),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.all(12),
-                                child: Row(
-                                  children: [
-                                    SvgPicture.asset(
-                                      'assets/svg/settings.svg',
-                                      color: Colors.white,
-                                    ),
-                                    const SizedBox(width: 10),
-                                    const Text(
-                                      'Settings',
-                                      style: AppTextStyle.gt16whitebold,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: 10),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 10),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Image.asset(
-                                  'assets/png/flutter_logo.png',
-                                  height: 15,
-                                ),
-                                Text(" • ",
-                                    style: AppTextStyle.gt16whitebold
-                                        .copyWith(fontSize: 14)),
-                                Text('Ver $appVersion',
-                                    style: AppTextStyle.gt16white
-                                        .copyWith(fontSize: 14)),
-                                Text(" • ",
-                                    style: AppTextStyle.gt16whitebold
-                                        .copyWith(fontSize: 14)),
-                                Text('Build $buildVersion',
-                                    style: AppTextStyle.gt16white
-                                        .copyWith(fontSize: 14)), //siz16
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
+        drawer: _Drawer(store: store),
         body: Observer(
           builder: (context) {
             return pages[store.index];
@@ -189,6 +60,148 @@ class _MainScreenState extends State<MainScreen> {
         ),
       );
     });
+  }
+}
+
+class _Drawer extends StatelessWidget {
+  const _Drawer({
+    required this.store,
+  });
+
+  final MainStore store;
+
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      backgroundColor: AppColors.splashBlack,
+      child: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+          child: Column(
+            // mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                // height: MediaQuery.sizeOf(context).height * 0.9,
+                decoration: BoxDecoration(
+                  color: AppColors.borderg,
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 30),
+                      child: SvgPicture.asset(
+                        'assets/svg/openai_logo.svg',
+                        height: 40,
+                      ),
+                    ),
+                    const Divider(color: Color.fromARGB(255, 93, 93, 93)),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 10, horizontal: 10),
+                      child: Column(
+                        children: [
+                          _TabCont(
+                            'ChatGPT',
+                            () {
+                              store.index = 0;
+                              Navigator.pop(context);
+                            },
+                            0,
+                            'assets/svg/openai_logo.svg',
+                          ),
+                          const SizedBox(height: 10),
+                          _TabCont(
+                            'DALL·E',
+                            () {
+                              store.index = 1;
+                              Navigator.pop(context);
+                            },
+                            1,
+                            'assets/svg/sparkle.svg',
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const Spacer(),
+              const SizedBox(height: 10),
+              Container(
+                decoration: BoxDecoration(
+                  color: AppColors.borderg,
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10)
+                      .copyWith(top: 10),
+                  child: Column(
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          store.index = 2;
+                          Navigator.pop(context);
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: store.index == 2
+                                ? AppColors.midBlue
+                                : const Color.fromARGB(255, 100, 100, 100),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(12),
+                            child: Row(
+                              children: [
+                                SvgPicture.asset(
+                                  'assets/svg/settings.svg',
+                                  color: Colors.white,
+                                ),
+                                const SizedBox(width: 10),
+                                const Text(
+                                  'Settings',
+                                  style: AppTextStyle.gt16whitebold,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              'assets/png/flutter_logo.png',
+                              height: 15,
+                            ),
+                            Text(" • ",
+                                style: AppTextStyle.gt16whitebold
+                                    .copyWith(fontSize: 14)),
+                            Text('Ver $appVersion',
+                                style: AppTextStyle.gt16white
+                                    .copyWith(fontSize: 14)),
+                            Text(" • ",
+                                style: AppTextStyle.gt16whitebold
+                                    .copyWith(fontSize: 14)),
+                            Text('Build $buildVersion',
+                                style: AppTextStyle.gt16white
+                                    .copyWith(fontSize: 14)), //siz16
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
 
