@@ -25,6 +25,22 @@ mixin _$KeysStore on _KeysStoreBase, Store {
     });
   }
 
+  late final _$apiKeyAtom =
+      Atom(name: '_KeysStoreBase.apiKey', context: context);
+
+  @override
+  String? get apiKey {
+    _$apiKeyAtom.reportRead();
+    return super.apiKey;
+  }
+
+  @override
+  set apiKey(String? value) {
+    _$apiKeyAtom.reportWrite(value, super.apiKey, () {
+      super.apiKey = value;
+    });
+  }
+
   late final _$_KeysStoreBaseActionController =
       ActionController(name: '_KeysStoreBase', context: context);
 
@@ -42,7 +58,8 @@ mixin _$KeysStore on _KeysStoreBase, Store {
   @override
   String toString() {
     return '''
-isConfettiFinished: ${isConfettiFinished}
+isConfettiFinished: ${isConfettiFinished},
+apiKey: ${apiKey}
     ''';
   }
 }

@@ -3,7 +3,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../chatgpt/store/chatgpt_store.dart';
+import '../dalle/store/dalle_store.dart';
 import '../main/store/main_store.dart';
+import '../onboarding/store/keys_store.dart';
 import 'splash_screen.dart';
 import 'theme/theme_provider.dart';
 
@@ -16,6 +18,12 @@ class App extends StatelessWidget {
       providers: [
         Provider(
           create: (context) => ChatgptStore(),
+        ),
+        Provider(
+          create: (context) => DalleStore(),
+        ),
+        Provider(
+          create: (context) => KeysStore(),
         ),
         Provider(
           create: (context) => MainStore(),

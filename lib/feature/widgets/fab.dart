@@ -10,6 +10,8 @@ import 'package:provider/provider.dart';
 import '../../core/constants/colors.dart';
 import '../../core/constants/styles.dart';
 import '../chatgpt/store/chatgpt_store.dart';
+import '../dalle/store/dalle_store.dart';
+import '../main/store/main_store.dart';
 
 class FAB extends StatelessWidget {
   const FAB({required this.controller, required this.suffix, super.key});
@@ -20,22 +22,24 @@ class FAB extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final chatgptStore = context.read<ChatgptStore>();
+    final dalleStore = context.read<DalleStore>();
+    final mainStore = context.read<MainStore>();
     return Container(
       height: 80,
       decoration: const BoxDecoration(
         color: AppColors.splashBlack,
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
         child: Row(
           children: [
             Expanded(
               child: SizedBox(
-                  height: 50,
+                  height: 60,
                   child: TextFormField(
                     controller: controller,
                     textInputAction: TextInputAction.done,
-                    textAlignVertical: TextAlignVertical.bottom,
+                    // textAlignVertical: TextAlignVertical.bottom,
                     decoration: InputDecoration(
                       hintText: "Message",
                       suffixIcon: suffix,
@@ -64,15 +68,24 @@ class FAB extends StatelessWidget {
             const SizedBox(width: 15),
             GestureDetector(
               onTap: () {
-                if (controller.text.isNotEmpty) {
-                  chatgptStore.chatgptAPI(controller.text);
-                  controller.clear();
+                if (mainStore.index == 0) {
+                  if (controller.text.isNotEmpty) {
+                    chatgptStore.chatgptAPI(controller.text);
+                    controller.clear();
+                  } else {
+                    Fluttertoast.showToast(msg: 'Ask GPT something duh!');
+                  }
                 } else {
-                  Fluttertoast.showToast(msg: 'Ask GPT something duh!');
+                  if (controller.text.isNotEmpty) {
+                    dalleStore.dalleAPI(controller.text);
+                    controller.clear();
+                  } else {
+                    Fluttertoast.showToast(msg: 'Ask GPT something duh!');
+                  }
                 }
               },
               child: Observer(builder: (_) {
-                return chatgptStore.isFetching
+                return chatgptStore.isFetching || dalleStore.isCreating
                     ? const SpinKitThreeBounce(
                         color: Colors.white,
                         size: 20,

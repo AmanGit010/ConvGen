@@ -1,5 +1,6 @@
 // ignore_for_file: avoid_positional_boolean_parameters
 
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:mobx/mobx.dart';
 part 'keys_store.g.dart';
 
@@ -15,4 +16,7 @@ abstract class _KeysStoreBase with Store {
     isConfettiFinished = value;
   }
   // ---------------------------------------------------------
+
+  @observable
+  String? apiKey = Hive.box('keyBox').get(0).toString();
 }

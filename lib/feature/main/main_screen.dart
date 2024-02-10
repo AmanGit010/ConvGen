@@ -11,7 +11,7 @@ import '../../core/constants/styles.dart';
 import '../app/widgets/resuable_appbar.dart';
 import '../chatgpt/screens/chatgpt_screen.dart';
 import '../dalle/screens/dalle_screen.dart';
-import '../onboarding/screens/key_screen.dart';
+import '../settings/settings_screen.dart';
 import 'store/main_store.dart';
 
 class MainScreen extends StatefulWidget {
@@ -26,7 +26,7 @@ class _MainScreenState extends State<MainScreen> {
   final pages = [
     const ChatgptScreen(),
     const DalleScreen(),
-    const KeysScreen(),
+    SettingsScreen(),
   ];
 
   late final store = context.read<MainStore>();
@@ -36,7 +36,12 @@ class _MainScreenState extends State<MainScreen> {
     return Observer(builder: (context) {
       return Scaffold(
         appBar: ReusableAppbar(
-          title: store.index == 0 ? 'ChatGPT' : 'DALL·E',
+          // title: store.index == 0 ? 'ChatGPT' : 'DALL·E',
+          title: store.index == 0
+              ? 'ChatGPT'
+              : store.index == 1
+                  ? 'DALL·E'
+                  : 'Settings',
           leading: Builder(builder: (context) {
             return GestureDetector(
               onTap: () {
