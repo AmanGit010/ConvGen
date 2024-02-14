@@ -10,7 +10,7 @@
         </intent>
     </queries>
     <application
-        android:label="GPT+DALL-E"
+        android:label="ConvGen"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

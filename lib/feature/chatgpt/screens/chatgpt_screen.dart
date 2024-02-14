@@ -118,6 +118,7 @@ class _ChatgptScreenState extends State<ChatgptScreen> {
                 itemCount: chatgptStore.messages.length,
                 itemBuilder: (context, index) {
                   final message = chatgptStore.messages[index];
+                  // print(chatgptStore.messages);
                   return PromptContainer(
                     role: message['role']!,
                     content: message['content']!,

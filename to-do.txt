@@ -1,5 +1,2 @@
-- Chatgpt prompt flow
-- Dalle prompt flow
-- Playstore publish 
-    - Add new feature pics
+- Create README 
 - 
