@@ -1,4 +1,4 @@
-name: chatgpt
+name: convgen
 description: "A ChatGPT & DALL·E App created using OpenAI API in Flutter and using MobX as state management."
 publish_to: "none"
 
