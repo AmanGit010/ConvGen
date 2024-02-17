@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:typewritertext/typewritertext.dart';
 
 import '../../core/constants/colors.dart';
 import '../../core/constants/styles.dart';
@@ -51,9 +52,13 @@ class PromptContainer extends StatelessWidget {
           SizedBox(
             width: MediaQuery.sizeOf(context).width * 0.75,
             child: SelectionArea(
-              child: Text(
-                content,
-                style: AppTextStyle.gt16white,
+              child: TypeWriterText(
+                maintainSize: false,
+                text: Text(
+                  content,
+                  style: AppTextStyle.gt16white,
+                ),
+                duration: const Duration(milliseconds: 5),
               ),
             ),
           ),

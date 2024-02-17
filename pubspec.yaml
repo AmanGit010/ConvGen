@@ -14,6 +14,7 @@ dependencies:
   confetti: ^0.7.0
   cupertino_icons: ^1.0.2
   flutter_mobx: ^2.2.0+2
+  flutter_spinkit: ^5.2.0
   flutter_svg: ^2.0.9
   fluttertoast: ^8.2.4
   gif: ^2.3.0
@@ -21,10 +22,10 @@ dependencies:
   hive_flutter: ^1.1.0
   http: ^1.2.0
   mobx: ^2.3.0+1
+  package_info_plus: ^5.0.1
   provider: ^6.1.1
   speech_to_text: ^6.5.1
-  package_info_plus: ^5.0.1
-  flutter_spinkit: ^5.2.0
+  typewritertext: ^2.3.1
   url_launcher: ^6.2.4
 
 dev_dependencies:
