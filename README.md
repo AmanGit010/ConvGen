@@ -29,11 +29,11 @@ Follow the below steps to generate your own API key: -
 
 2. Go to **API Keys** section
    
-   ![image](https://github.com/AmanGit010/ChatGPT-DALL-E-App/assets/102356628/5147397c-9d10-4250-aaed-c4acee8778b7)
+   ![image](https://github.com/AmanGit010/ConvGen/assets/102356628/ccc68e00-2ce0-42ab-b1bd-75a293e8884c)
 
 4. Click on **Create new Secret key**
-   
-   ![image](https://github.com/AmanGit010/ChatGPT-DALL-E-App/assets/102356628/6a257451-bcd3-4820-b595-85bd8eff354f)
+
+   ![image](https://github.com/AmanGit010/ConvGen/assets/102356628/b23ba669-bfc9-4079-a5bd-0a1031273357)
 
 5. Optional, name your API key and save it somewhere safe as it is view once only.
    
