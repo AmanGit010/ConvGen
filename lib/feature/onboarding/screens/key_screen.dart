@@ -26,8 +26,7 @@ class _KeysScreenState extends State<KeysScreen> {
   final TextEditingController _apikey = TextEditingController();
   final formKey = GlobalKey<FormState>();
   late final store = context.read<KeysStore>();
-  final url =
-      'https://github.com/AmanGit010/ChatGPT-DALL-E-App/blob/main/README.md';
+  final url = 'https://github.com/AmanGit010/ConvGen/blob/main/README.md';
 
   //Confetti code --------------------
   @override
