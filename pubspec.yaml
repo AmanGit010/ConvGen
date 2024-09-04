@@ -2,7 +2,7 @@ name: convgen
 description: "A ChatGPT & DALL·E App created using OpenAI API in Flutter and using MobX as state management."
 publish_to: "none"
 
-version: 1.0.0+1
+version: 1.0.0+8
 
 environment:
   sdk: ">=3.2.5 <4.0.0"
